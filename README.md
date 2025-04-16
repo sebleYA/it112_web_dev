@@ -1,3 +1,3 @@
-# it112_web_dev
 
-# This is IT112 Web Development using Python
+
+# This is IT112 Python Web Development
