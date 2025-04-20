@@ -1,0 +1,38 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    padding-top: 60px;
+  }
+  
+  .fortune-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 40px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .fortune {
+    font-size: 1.4em;
+    color: #007acc;
+    font-style: italic;
+    margin-top: 25px;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 35px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007acc;
+    padding: 10px 22px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    background-color: #005fa3;
+  }
+  
