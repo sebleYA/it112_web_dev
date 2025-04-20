@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Teller</title>
+</head>
+<body>
+    <h1>Welcome to Fortune Teller</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <form action="/fortune" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+      
+        <label>your color choice:</label><br>
+        <select name="color" required>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="violet">Violet</option>
+
+        </select><br><br>
+      
+        <label>Pick a Number:</label><br>
+        <select name="number" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select><br><br>
+      
+      
+              
+<br><br>
+        <input type="submit" value="Show me my fortune">
+    
+    </form>
+    
+</body>
+</html>
