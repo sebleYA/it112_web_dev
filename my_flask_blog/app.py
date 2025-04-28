@@ -1,7 +1,53 @@
 from flask import Flask, request, render_template
 import random
+from flask_sqlalchemy import SQLAlchemy
 
+
+# create database and connect to sqlite
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cakes.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# define cake model that maps item to a cake database
+class Cake (db.Model):
+    id = db.Column(db.Integer, primary_key=True) # auto incrementing ID
+    title = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    recipe = db.Column (db.Text, nullable=False)
+
+with app.app_context():
+    db.create_all()
+
+    # populate database with items
+    if Cake.query.count() == 0:
+        cakes_sample = [
+            {"title": "Chocolate Cake", "description": "A rich, moist chocolate cake topped with creamy chocolate frosting.", "recipe": "chocolate, cocoa powder, oil/butter, eggs, flour, baking powder, salt, sugar, milk, vanila extract"},
+            {"title": "Vanilla Cake", "description": "A light and fluffy vanilla cake with a soft, whipped cream topping.", "recipe": 'all pupose flour, sugar, butter, eggs, baking powder, buttermilk, vanilla extract'},
+            {"title": "Carrot Cake", "description": "A flavorful cake with grated carrots, walnuts, and cinnamon, topped with cream cheese frosting.", "recipe": "self rising flour, baking powder, sugar, oil, carrots"},
+            {"title": "Lemon Cake", "description": "A refreshing lemon cake with a tart lemon glaze.", "recipe": "sugar, butter, eggs, vanilla extract, all purpose flour, baking powder, lemon zest"}
+        ]
+
+        for cake in cakes_sample:
+            new_cake = Cake(title=cake['title'], description=cake['description'], recipe=cake['recipe'])
+            db.session.add(new_cake)
+
+        db.session.commit()
+
+#create route that shows all lists of cake
+@app.route('/cakes')
+def cakes():
+    cakes = Cake.query.all()
+    return render_template('index.html', cakes=cakes)
+
+# create detail route showing all full information for each
+
+@app.route('/cake/<int:id>')
+def cake_detail(id):
+    cake = Cake.query.get_or_404(id) #get cake by id if not found return 404
+    return render_template('cake_detail.html', cake = cake)
+
+
 
 @app.route("/")
 def home():
@@ -55,6 +101,10 @@ def fortune():
         return render_template('fortune_result.html', name=name, fortune = my_fortune)
 
     return render_template('fortune_form.html')
+
+
+
+
 
         
 
