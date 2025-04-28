@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Cakes</title>
+</head>
+<body>
+    <h1>All Cakes</h1>
+    <ul>
+        {% for cake in cakes %}
+            <li>
+                <a href="{{ url_for('cake_detail', id=cake.id) }}">{{ cake.title }}</a> - {{ cake.description }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
