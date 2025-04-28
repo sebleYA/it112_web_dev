@@ -1,0 +1,35 @@
+/* index.css */
+body {
+    background-color: lightblue;
+}
+
+
+
+/* Targeting h1 elements */
+h1 {
+    color: darkblue;
+    font-size: 3em;
+    text-align: center;
+}
+
+/* Targeting all links inside <li> elements */
+li a {
+    color: rgb(187, 41, 41);
+    text-decoration: none;
+}
+
+/* Styling the <ul> */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Additional styling for cake titles and descriptions */
+li {
+    margin-bottom: 10px;
+}
+
+a:hover {
+    background-color: #273d92;
+    text-decoration: none;
+}
