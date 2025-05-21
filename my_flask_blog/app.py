@@ -57,9 +57,9 @@ with app.app_context():
 
         for cake in cakes_sample:
             new_cake = Cake(
-                title = cake["title"],
-                description = cake["description"],
-                recipe = cake["recipe"],
+                title = Cake["title"],
+                description = Cake["description"],
+                recipe = Cake["recipe"],
             )
             db.session.add(new_cake)
 
@@ -92,7 +92,6 @@ def add_cake():
             return jsonify({"error": "Missing required fields"}), 400
 
         new_cake = cake(
-            name=data["name"],
             title=data["title"],
             description=data["description"],
             recipe=data["recipe"],
