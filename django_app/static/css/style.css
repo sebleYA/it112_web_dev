@@ -8,3 +8,22 @@ h1 {
     color: #5e1f1f;
     margin-top: 50px;
 }
+
+.book-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.book-list li{
+    padding: 8px;
+    background: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.book-detail {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
