@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="book-detail">
+<h1>{{ book.title }}</h1>
+<p><strong>Author:</strong> {{ book.author }}</p>
+<p><strong>Published:</strong> {{ book.year_published }}</p>
+<a href="{% url 'book_list' %}">Back to list</a>
+</div>
